@@ -92,7 +92,9 @@
     NSURL *c3poURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/C-3PO"];
     NSData *c3poSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"c3po" withExtension:@"caf"]];
     UIImage *c3poImage = [UIImage imageNamed:@"c3po.jpg" ];
-    FCBCharacterModel *c3po = [FCBCharacterModel  characterModelWhiAlias:@"C-3PO"
+    FCBCharacterModel *c3po = [FCBCharacterModel characterModelWhitFirstName:@"c3po"
+                                                                    lastName:@"c3po"
+                                                                       alias:@"c3po"
                                                                 wikiPage:c3poURL
                                                                soundData:c3poSound
                                                                    photo:c3poImage];
@@ -102,7 +104,9 @@
     NSData *chewbaccaSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"chewbacca" withExtension:@"caf"]];
     UIImage *chewbaccaImage = [UIImage imageNamed:@"chewbacca.jpg" ];
     
-    FCBCharacterModel *chewbacca = [FCBCharacterModel  characterModelWhiAlias:@"chewbacca"
+    FCBCharacterModel *chewbacca = [FCBCharacterModel  characterModelWhitFirstName:@"chewbacca"
+                                                                          lastName:@"chewbacca"
+                                                                             alias:@"chewbacca"
                                                                      wikiPage:chewbaccaURL
                                                                     soundData:chewbaccaSound
                                                                         photo:chewbaccaImage];
@@ -111,9 +115,11 @@
     //r2d2
     NSURL *r2d2URL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/R2-D2"];
     NSData *r2d2Sound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"r2-d2" withExtension:@"caf"]];
-    UIImage *r2d2Image = [UIImage imageNamed:@"RD-D2.jpg" ];
+    UIImage *r2d2Image = [UIImage imageNamed:@"R2-D2.jpg" ];
     
-    FCBCharacterModel *r2d2 = [FCBCharacterModel  characterModelWhiAlias:@"r2d2"
+    FCBCharacterModel *r2d2 = [FCBCharacterModel  characterModelWhitFirstName:@"r2-d2"
+                                                                     lastName:@"r2-d2"
+                                                                        alias:@"r2-d2"
                                                                      wikiPage:r2d2URL
                                                                     soundData:r2d2Sound
                                                                         photo:r2d2Image];
@@ -123,7 +129,9 @@
     NSData *palpatineSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"palpatine" withExtension:@"caf"]];
     UIImage *palpatineImage = [UIImage imageNamed:@"palpatine.jpg" ];
     
-    FCBCharacterModel *palpatine = [FCBCharacterModel  characterModelWhiAlias:@"r2d2"
+    FCBCharacterModel *palpatine = [FCBCharacterModel  characterModelWhitFirstName:@"palpatine"
+                                                                          lastName:@"palpatine"
+                                                                             alias:@"palpatine"
                                                                 wikiPage:palpatineURL
                                                                soundData:palpatineSound
                                                                    photo:palpatineImage];
