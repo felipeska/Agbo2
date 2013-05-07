@@ -19,5 +19,6 @@
 -(id) initWithModel: (FCBCharacterModel *) aModel;
 
 -(IBAction)playSound:(id)sender;
+-(IBAction)showWiki:(id)sender;
 
 @end

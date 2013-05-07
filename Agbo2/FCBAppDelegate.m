@@ -17,6 +17,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //Configure Appearance
+    
+    
+    
     //Creamos un modelo
     
     NSURL *vaderURL =[NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
@@ -45,10 +49,12 @@
     FCBChararterViewController *charVC = [[FCBChararterViewController alloc] initWithModel:vader];
     
     //Creamosel combinador
-    UITabBarController *tabvc = [[UITabBarController alloc]init];
-    [tabvc setViewControllers:@[charVC,wikiVC]];
+   // UITabBarController *tabvc = [[UITabBarController alloc]init];
+   // [tabvc setViewControllers:@[charVC,wikiVC]];
     
-    [[self window] setRootViewController:tabvc];
+    UINavigationController *naVC = [[UINavigationController alloc]init];
+    [naVC pushViewController:charVC animated:NO];
+    [[self window] setRootViewController:naVC];
 
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor greenColor];
@@ -91,6 +97,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     // La app es asesinada por el sistema operativo
+}
+
+#pragma mark -Utilities
+
+-(void) configureAppearance{
+    UIColor *darkBLue = [UIColor colorWithRed:0 green:0 blue:0.15 alpha:1];
+    [[UINavigationBar appearance] setTintColor:darkBLue];
 }
 
 @end
