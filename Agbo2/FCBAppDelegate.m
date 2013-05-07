@@ -36,10 +36,20 @@
     //Lo mostramos en pantalla
     //[[self window] setRootViewController:charVC];
     
+    //FCBWikiViewController * wikiVC = [[FCBWikiViewController alloc] initWithModel:vader];
+    
+    //[[self window] setRootViewController:wikiVC];
+    
+    //Creamos los controladores
     FCBWikiViewController * wikiVC = [[FCBWikiViewController alloc] initWithModel:vader];
+    FCBChararterViewController *charVC = [[FCBChararterViewController alloc] initWithModel:vader];
     
-    [[self window] setRootViewController:wikiVC];
+    //Creamosel combinador
+    UITabBarController *tabvc = [[UITabBarController alloc]init];
+    [tabvc setViewControllers:@[charVC,wikiVC]];
     
+    [[self window] setRootViewController:tabvc];
+
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor greenColor];
     [self.window makeKeyAndVisible];
