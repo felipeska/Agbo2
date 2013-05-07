@@ -8,7 +8,8 @@
 
 #import "FCBAppDelegate.h"
 #import "FCBCharacterModel.h"
-#import "FCBChararterViewController.h"
+#import "FCBCharacterModels.h"
+#import "FCBCharactersViewController.h"
 #import "FCBWikiViewController.h"
 
 @implementation FCBAppDelegate
@@ -18,13 +19,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Configure Appearance
+    [self configureAppearance];
     
-    //Creamos el combinador
-    UITabBarController *taVC = [[UITabBarController alloc] init];
-    [taVC setViewControllers: [self arrayOfControls]];
-    //Mostramos un new
-    [[self window] setRootViewController:taVC];
+    //Creamos el Modelo
+    FCBCharacterModels * model = [FCBCharacterModels new];
     
+    //Creamos un Controlador
+    FCBCharactersViewController * charsVC = [[FCBCharactersViewController alloc] initWithStyle:UITableViewStylePlain model:model];
+    
+    //Creamos el Combinador
+    UINavigationController *naVC = [[UINavigationController alloc] init];
+    [naVC pushViewController:charsVC animated:YES];
+    
+    //Mostramos en pantalla
+    self.window.rootViewController = naVC;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor greenColor];
     [self.window makeKeyAndVisible];
@@ -73,87 +81,6 @@
 -(void) configureAppearance{
     UIColor *darkBLue = [UIColor colorWithRed:0 green:0 blue:0.15 alpha:1];
     [[UINavigationBar appearance] setTintColor:darkBLue];
-}
-
--(NSArray *) arrayModels{
-    
-    //Darth Vader
-    
-    NSURL *vaderURL =[NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-    NSData *vaderSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"vader" withExtension:@"caf"]];
-    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg" ];
-    FCBCharacterModel *vader = [FCBCharacterModel  characterModelWhitFirstName:@"anakin"
-                                                                      lastName:@"SkyWalker"
-                                                                         alias:@"Darth Vader"
-                                                                      wikiPage:vaderURL
-                                                                     soundData:vaderSound
-                                                                         photo:vaderImage];
-    //C-3PO
-    NSURL *c3poURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/C-3PO"];
-    NSData *c3poSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"c3po" withExtension:@"caf"]];
-    UIImage *c3poImage = [UIImage imageNamed:@"c3po.jpg" ];
-    FCBCharacterModel *c3po = [FCBCharacterModel characterModelWhitFirstName:@"c3po"
-                                                                    lastName:@"c3po"
-                                                                       alias:@"c3po"
-                                                                wikiPage:c3poURL
-                                                               soundData:c3poSound
-                                                                   photo:c3poImage];
-    
-    //chewbacca
-    NSURL *chewbaccaURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/Chewbacca"];
-    NSData *chewbaccaSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"chewbacca" withExtension:@"caf"]];
-    UIImage *chewbaccaImage = [UIImage imageNamed:@"chewbacca.jpg" ];
-    
-    FCBCharacterModel *chewbacca = [FCBCharacterModel  characterModelWhitFirstName:@"chewbacca"
-                                                                          lastName:@"chewbacca"
-                                                                             alias:@"chewbacca"
-                                                                     wikiPage:chewbaccaURL
-                                                                    soundData:chewbaccaSound
-                                                                        photo:chewbaccaImage];
-    
-    
-    //r2d2
-    NSURL *r2d2URL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/R2-D2"];
-    NSData *r2d2Sound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"r2-d2" withExtension:@"caf"]];
-    UIImage *r2d2Image = [UIImage imageNamed:@"R2-D2.jpg" ];
-    
-    FCBCharacterModel *r2d2 = [FCBCharacterModel  characterModelWhitFirstName:@"r2-d2"
-                                                                     lastName:@"r2-d2"
-                                                                        alias:@"r2-d2"
-                                                                     wikiPage:r2d2URL
-                                                                    soundData:r2d2Sound
-                                                                        photo:r2d2Image];
-    
-    //palpatine
-    NSURL *palpatineURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/R2-D2"];
-    NSData *palpatineSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"palpatine" withExtension:@"caf"]];
-    UIImage *palpatineImage = [UIImage imageNamed:@"palpatine.jpg" ];
-    
-    FCBCharacterModel *palpatine = [FCBCharacterModel  characterModelWhitFirstName:@"palpatine"
-                                                                          lastName:@"palpatine"
-                                                                             alias:@"palpatine"
-                                                                wikiPage:palpatineURL
-                                                               soundData:palpatineSound
-                                                                   photo:palpatineImage];
-
-    return @[vader,c3po,chewbacca,r2d2,palpatine];
-    
-}
-
--(NSArray *) arrayOfControls{
-    
-    NSArray * models = [self arrayModels];
-    
-    NSMutableArray * controllers = [NSMutableArray arrayWithCapacity:5];
-    
-    for (FCBCharacterModel *model in models){
-        
-        FCBChararterViewController *charVC = [[FCBChararterViewController alloc] initWithModel:model];
-        
-        [controllers addObject:charVC];
-    }
-    
-    return controllers;
 }
 
 @end

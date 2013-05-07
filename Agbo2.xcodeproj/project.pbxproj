@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		735A2D611739801B0001A095 /* FCBCharacterModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 735A2D601739801B0001A095 /* FCBCharacterModels.m */; };
+		735A2D64173987C30001A095 /* FCBCharactersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735A2D63173987C30001A095 /* FCBCharactersViewController.m */; };
 		73F8CFD61738301D00AB3FD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F8CFD51738301D00AB3FD1 /* UIKit.framework */; };
 		73F8CFD81738301D00AB3FD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F8CFD71738301D00AB3FD1 /* Foundation.framework */; };
 		73F8CFDA1738301D00AB3FD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F8CFD91738301D00AB3FD1 /* CoreGraphics.framework */; };
@@ -42,6 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		735A2D5F1739801B0001A095 /* FCBCharacterModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBCharacterModels.h; sourceTree = "<group>"; };
+		735A2D601739801B0001A095 /* FCBCharacterModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBCharacterModels.m; sourceTree = "<group>"; };
+		735A2D62173987C30001A095 /* FCBCharactersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBCharactersViewController.h; sourceTree = "<group>"; };
+		735A2D63173987C30001A095 /* FCBCharactersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBCharactersViewController.m; sourceTree = "<group>"; };
 		73F8CFD21738301D00AB3FD1 /* Agbo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agbo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F8CFD51738301D00AB3FD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		73F8CFD71738301D00AB3FD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +169,8 @@
 			children = (
 				73F8CFF21738397B00AB3FD1 /* FCBCharacterModel.h */,
 				73F8CFF31738397B00AB3FD1 /* FCBCharacterModel.m */,
+				735A2D5F1739801B0001A095 /* FCBCharacterModels.h */,
+				735A2D601739801B0001A095 /* FCBCharacterModels.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -176,6 +184,8 @@
 				73F8D02217393AF500AB3FD1 /* FCBWikiViewController.h */,
 				73F8D02317393AF500AB3FD1 /* FCBWikiViewController.m */,
 				73F8D02417393AF500AB3FD1 /* FCBWikiViewController.xib */,
+				735A2D62173987C30001A095 /* FCBCharactersViewController.h */,
+				735A2D63173987C30001A095 /* FCBCharactersViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -291,6 +301,8 @@
 				73F8CFF9173840C200AB3FD1 /* FCBChararterViewController.m in Sources */,
 				73F8D01F17384E2A00AB3FD1 /* CafPlayer.m in Sources */,
 				73F8D02517393AF600AB3FD1 /* FCBWikiViewController.m in Sources */,
+				735A2D611739801B0001A095 /* FCBCharacterModels.m in Sources */,
+				735A2D64173987C30001A095 /* FCBCharactersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +421,7 @@
 				73F8CFF11738301D00AB3FD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
