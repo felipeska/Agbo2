@@ -19,43 +19,12 @@
     
     //Configure Appearance
     
+    //Creamos el combinador
+    UITabBarController *taVC = [[UITabBarController alloc] init];
+    [taVC setViewControllers: [self arrayOfControls]];
+    //Mostramos un new
+    [[self window] setRootViewController:taVC];
     
-    
-    //Creamos un modelo
-    
-    NSURL *vaderURL =[NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-    NSData *vaderSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"vader" withExtension:@"caf"]];
-    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg" ];
-    
-    FCBCharacterModel *vader = [FCBCharacterModel  characterModelWhitFirstName:@"anakin"
-                                                                      lastName:@"SkyWalker"
-                                                                         alias:@"Darth Vader"
-                                                                    wikiPage:vaderURL
-                                                                     soundData:vaderSound
-                                                                         photo:vaderImage];
-    
-    //Creamos un controlaoor
-    //FCBChararterViewController *charVC = [[FCBChararterViewController alloc] initWithModel:vader];
-    
-    //Lo mostramos en pantalla
-    //[[self window] setRootViewController:charVC];
-    
-    //FCBWikiViewController * wikiVC = [[FCBWikiViewController alloc] initWithModel:vader];
-    
-    //[[self window] setRootViewController:wikiVC];
-    
-    //Creamos los controladores
-    FCBWikiViewController * wikiVC = [[FCBWikiViewController alloc] initWithModel:vader];
-    FCBChararterViewController *charVC = [[FCBChararterViewController alloc] initWithModel:vader];
-    
-    //Creamosel combinador
-   // UITabBarController *tabvc = [[UITabBarController alloc]init];
-   // [tabvc setViewControllers:@[charVC,wikiVC]];
-    
-    UINavigationController *naVC = [[UINavigationController alloc]init];
-    [naVC pushViewController:charVC animated:NO];
-    [[self window] setRootViewController:naVC];
-
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor greenColor];
     [self.window makeKeyAndVisible];
@@ -104,6 +73,79 @@
 -(void) configureAppearance{
     UIColor *darkBLue = [UIColor colorWithRed:0 green:0 blue:0.15 alpha:1];
     [[UINavigationBar appearance] setTintColor:darkBLue];
+}
+
+-(NSArray *) arrayModels{
+    
+    //Darth Vader
+    
+    NSURL *vaderURL =[NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+    NSData *vaderSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"vader" withExtension:@"caf"]];
+    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg" ];
+    FCBCharacterModel *vader = [FCBCharacterModel  characterModelWhitFirstName:@"anakin"
+                                                                      lastName:@"SkyWalker"
+                                                                         alias:@"Darth Vader"
+                                                                      wikiPage:vaderURL
+                                                                     soundData:vaderSound
+                                                                         photo:vaderImage];
+    //C-3PO
+    NSURL *c3poURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/C-3PO"];
+    NSData *c3poSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"c3po" withExtension:@"caf"]];
+    UIImage *c3poImage = [UIImage imageNamed:@"c3po.jpg" ];
+    FCBCharacterModel *c3po = [FCBCharacterModel  characterModelWhiAlias:@"C-3PO"
+                                                                wikiPage:c3poURL
+                                                               soundData:c3poSound
+                                                                   photo:c3poImage];
+    
+    //chewbacca
+    NSURL *chewbaccaURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/Chewbacca"];
+    NSData *chewbaccaSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"chewbacca" withExtension:@"caf"]];
+    UIImage *chewbaccaImage = [UIImage imageNamed:@"chewbacca.jpg" ];
+    
+    FCBCharacterModel *chewbacca = [FCBCharacterModel  characterModelWhiAlias:@"chewbacca"
+                                                                     wikiPage:chewbaccaURL
+                                                                    soundData:chewbaccaSound
+                                                                        photo:chewbaccaImage];
+    
+    
+    //r2d2
+    NSURL *r2d2URL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/R2-D2"];
+    NSData *r2d2Sound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"r2-d2" withExtension:@"caf"]];
+    UIImage *r2d2Image = [UIImage imageNamed:@"RD-D2.jpg" ];
+    
+    FCBCharacterModel *r2d2 = [FCBCharacterModel  characterModelWhiAlias:@"r2d2"
+                                                                     wikiPage:r2d2URL
+                                                                    soundData:r2d2Sound
+                                                                        photo:r2d2Image];
+    
+    //palpatine
+    NSURL *palpatineURL =[NSURL URLWithString:@"http://en.wikipedia.org/wiki/R2-D2"];
+    NSData *palpatineSound = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"palpatine" withExtension:@"caf"]];
+    UIImage *palpatineImage = [UIImage imageNamed:@"palpatine.jpg" ];
+    
+    FCBCharacterModel *palpatine = [FCBCharacterModel  characterModelWhiAlias:@"r2d2"
+                                                                wikiPage:palpatineURL
+                                                               soundData:palpatineSound
+                                                                   photo:palpatineImage];
+
+    return @[vader,c3po,chewbacca,r2d2,palpatine];
+    
+}
+
+-(NSArray *) arrayOfControls{
+    
+    NSArray * models = [self arrayModels];
+    
+    NSMutableArray * controllers = [NSMutableArray arrayWithCapacity:5];
+    
+    for (FCBCharacterModel *model in models){
+        
+        FCBChararterViewController *charVC = [[FCBChararterViewController alloc] initWithModel:model];
+        
+        [controllers addObject:charVC];
+    }
+    
+    return controllers;
 }
 
 @end

@@ -24,7 +24,7 @@
                soundData: (NSData *) aSoundData
                    photo: (UIImage *) aPhoto;
 
--(id) initWhitalias: (NSString * ) aAlias
+-(id) initWhitAlias: (NSString * ) aAlias
            wikiPage: (NSURL *) aWikiPage
           soundData: (NSData *) aSoundData
               photo: (UIImage *) aPhoto;
@@ -38,7 +38,7 @@
                              photo: (UIImage *) aPhoto;
 
 
-+(id) characterModelWhialias: (NSString * ) aAlias
++(id) characterModelWhiAlias: (NSString * ) aAlias
                     wikiPage: (NSURL *) aWikiPage
                    soundData: (NSData *) aSoundData
                        photo: (UIImage *) aPhoto;

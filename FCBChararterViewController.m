@@ -50,7 +50,7 @@
 
 
 -(IBAction)showWiki:(id)sender{
-    FCBWikiViewController * wikiVC = [[FCBWikiViewController alloc] initWithModel:self.model];
+   // FCBWikiViewController * wikiVC = [[FCBWikiViewController alloc] initWithModel:self.model];
 }
 
 @end

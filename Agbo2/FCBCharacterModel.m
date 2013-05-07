@@ -23,12 +23,12 @@
 }
 
 
-+(id) characterModelWhialias: (NSString * ) aAlias
++(id) characterModelWhiAlias: (NSString * ) aAlias
                     wikiPage: (NSURL *) aWikiPage
                    soundData: (NSData *) aSoundData
                        photo: (UIImage *) aPhoto{
     
-    return [[self alloc] initWhitalias:aAlias wikiPage:aWikiPage soundData:aSoundData photo:aPhoto];
+    return [[self alloc] initWhitAlias:aAlias wikiPage:aWikiPage soundData:aSoundData photo:aPhoto];
     
 }
 
@@ -51,13 +51,13 @@
     return  self;
 }
 
--(id) initWhitalias: (NSString * ) aAlias
+-(id) initWhitAlias: (NSString * ) aAlias
            wikiPage: (NSURL *) aWikiPage
           soundData: (NSData *) aSoundData
               photo: (UIImage *) aPhoto{
     
     
-    return [self initWhitalias:aAlias wikiPage:aWikiPage soundData:aSoundData photo: aPhoto];
+    return [self initWhitAlias:aAlias wikiPage:aWikiPage soundData:aSoundData photo: aPhoto];
     
 }
 
